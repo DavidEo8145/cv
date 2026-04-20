@@ -1,58 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+:root {
+  --text: #111;
+  --muted: #555;
+  --line: #d9d9d9;
+  --bg: #fff;
+}
 
-body {
-    max-width: 960px;    /* 최대 너비 */
-    margin: auto;         /* 마진 auto - 내용을 화면 가운데 맞추기 위해  */
-    font-family: "Noto Sans KR", "Nanum Gothic";        /* 글꼴 - 웹 폰트 */
-    font-size:14px;     /* 글자 크기 */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: var(--text);
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.32;
+  font-size: 13.2px;
+}
+
+.cv {
+  width: min(860px, 94%);
+  margin: 16px auto;
+  background: var(--bg);
+  padding: 26px 30px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 h1 {
-    font-size: 3rem;    /* 글자 크기 */
-    letter-spacing: 0.6rem;  /* 자간 */
-    padding-top: 1rem;   /* 위쪽 패딩 */
-    padding-bottom: 1rem;   /*  아래쪽 패딩 */
+  margin: 0 0 2px;
+  font-size: 26px;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
 }
 
-h2 {
-    font-size: 1.5rem;
-    padding-bottom: 1em;
+.role {
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.2;
 }
 
-main {
-    display: grid;    /* css grid 사용 */
-    grid-template-columns: 40% 60%; /* 왼쪽 40%, 오른쪽 60% */
-    margin-top: 3rem;
+.contact {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
 }
 
-header {
-    text-align: center;
-    margin: auto 2rem;
+a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 section {
-    margin: auto 1rem 4rem 2rem;
+  margin: 9px 0 10px;
+}
+
+h2 {
+  font-size: 15px;
+  margin: 0 0 5px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  line-height: 1.2;
+}
+
+.item {
+  margin-bottom: 7px;
+}
+
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.item-head h3 {
+  margin: 0;
+  font-size: 13.7px;
+  line-height: 1.2;
+}
+
+.item-head p {
+  margin: 0;
+  color: var(--muted);
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.item-subtitle {
+  margin: 1px 0 2px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+ul {
+  margin: 2px 0 0 16px;
+  padding: 0;
+}
+
+li {
+  margin: 1px 0;
+  line-height: 1.28;
 }
 
 p {
-    margin: 0.2rem auto;
+  margin: 1px 0;
+  line-height: 1.25;
 }
 
-hr {
-    border: none;
-    background-color: lightgray;
-    height: 1px;
-}
+/* Print: true one-page A4 target */
+@media print {
+  @page {
+    size: A4;
+    margin: 8mm 10mm;
+  }
 
-h1, h2 {
-    font-weight: 100; 
-    margin-bottom: 0;
-}
+  html, body {
+    background: #fff;
+    font-size: 11.2px;
+    line-height: 1.24;
+  }
 
-i {
-    margin-right: 0.5rem;    /* SNS 아이콘 오른쪽 여백 */
-}
+  .cv {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    padding: 0;
+  }
 
-#mainLeft {
-    border-right: 1px solid lightgray;
+  h1 {
+    font-size: 20px;
+    margin-bottom: 1px;
+  }
+
+  .role {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  .contact {
+    font-size: 10.2px;
+    gap: 1px 8px;
+  }
+
+  section {
+    margin: 5px 0 6px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-bottom: 3px;
+    padding-bottom: 1px;
+  }
+
+  .item {
+    margin-bottom: 4px;
+    page-break-inside: avoid;
+  }
+
+  .item-head h3 {
+    font-size: 11.2px;
+  }
+
+  .item-head p,
+  .item-subtitle,
+  p,
+  li {
+    font-size: 10.2px;
+  }
+
+  ul {
+    margin-left: 13px;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
